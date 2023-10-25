@@ -1,4 +1,4 @@
-name: ASP.NET CI/CD
+name: ASP.NET 4.8 CI/CD
 
 on:
   push:
@@ -13,10 +13,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up .NET
+    - name: Set up .NET Framework
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 4.x
+        
+    - name: Restore dependencies
+      run: dotnet restore    
   
     - name: Build the application
       run: dotnet build
@@ -34,11 +37,10 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 4.x
         
     - name: Test
       run: dotnet test --no-build --verbosity normal
 
-    - name: Publish the application
-      run: dotnet publish 03-app-dotnet/app-dotnet.csproj -c Release -o website
+    
 
