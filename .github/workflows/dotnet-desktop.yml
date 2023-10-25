@@ -107,7 +107,7 @@ jobs:
     - name: Remove the pfx
       run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
 
-    # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
+    # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifacts
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
